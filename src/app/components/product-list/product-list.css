@@ -1,0 +1,7 @@
+.add-edit-buttons-div{
+   display: flex;
+   gap: 10px;
+   justify-content: right;
+   margin: 5px;
+   padding: 5px;
+}

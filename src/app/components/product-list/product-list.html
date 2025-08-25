@@ -1,1 +1,21 @@
-<p>product-list works!</p>
+<div class="add-edit-buttons-div">
+<button kendoButton >Add Product</button>
+<button kendoButton >Edit Product</button>
+</div>
+
+<div class="kendo-grid-div">
+<kendo-grid
+[data]="products"
+[pageable]="true"
+>
+
+    <kendo-grid-column title="Product Name"  field="name"></kendo-grid-column>
+    <kendo-grid-column title="Product Id"  field="id"></kendo-grid-column>
+    <kendo-grid-column title="Category" field="category"></kendo-grid-column>
+    <kendo-grid-column title="Discontinued" field="discontinued"></kendo-grid-column>
+    <kendo-grid-column title="Units In Stock" field="UnitsInStock"></kendo-grid-column>
+    <kendo-grid-column title="Created At" field="createdAt"></kendo-grid-column>
+    <kendo-grid-column title="Price" field="price"></kendo-grid-column>
+
+</kendo-grid>
+</div>
