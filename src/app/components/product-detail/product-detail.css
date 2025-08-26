@@ -1,0 +1,15 @@
+.titles {
+display: flex;
+flex-direction: column;
+gap: 15px;
+margin: 8px;
+padding: 5px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: right;
+}

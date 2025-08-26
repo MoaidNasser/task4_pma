@@ -8,4 +8,5 @@ export interface Product {
     UnitsInStock : number;
     createdAt: Date;
     category : Category;
+    SupplierID: number;
 }
