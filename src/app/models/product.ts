@@ -6,7 +6,9 @@ export interface Product {
     price : number;
     discontinued: boolean;
     UnitsInStock : number;
-    createdAt: Date;
+    createdAt: string;
     category : Category;
-    SupplierID: number;
+    SupplierID : number;
+    description : string;
+    updatedAt : string ;
 }
