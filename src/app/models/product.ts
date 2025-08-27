@@ -7,8 +7,10 @@ export interface Product {
     discontinued: boolean;
     UnitsInStock: number;
     createdAt: string;
-    category: Category;
+    category:  Category | null;
     SupplierID: number;
     description: string;
     updatedAt: string;
 }
+
+/* name price category SupplierID. description*/

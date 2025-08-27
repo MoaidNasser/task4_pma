@@ -8,7 +8,6 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "postinstall": "node ./node_modules/@progress/kendo-licensing/apply-license.js"
-
   },
   "prettier": {
     "overrides": [
@@ -27,19 +26,28 @@
     "@angular/compiler": "^20.1.0",
     "@angular/core": "^20.1.0",
     "@angular/forms": "^20.1.0",
-    "@angular/localize": "^20.2.1",
+    "@angular/localize": "^20.1.0",
     "@angular/platform-browser": "^20.1.0",
     "@angular/router": "^20.1.0",
     "@progress/kendo-angular-buttons": "^19.3.0",
-    "@progress/kendo-angular-common": "^19.3.0",
+    "@progress/kendo-angular-common": "19.3.0",
     "@progress/kendo-angular-dateinputs": "^19.3.0",
     "@progress/kendo-angular-grid": "^19.3.0",
-    "@progress/kendo-angular-inputs": "^19.3.0",
-    "@progress/kendo-angular-l10n": "^19.3.0",
+    "@progress/kendo-angular-inputs": "19.3.0",
+    "@progress/kendo-angular-l10n": "19.3.0",
     "@progress/kendo-theme-default": "^12.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.15.0"
+    "zone.js": "~0.15.0",
+    "@progress/kendo-licensing": "^1.7.0",
+    "@progress/kendo-angular-utils": "19.3.0",
+    "@progress/kendo-angular-navigation": "19.3.0",
+    "@progress/kendo-angular-popup": "19.3.0",
+    "@progress/kendo-angular-icons": "19.3.0",
+    "@progress/kendo-angular-treeview": "19.3.0",
+    "@progress/kendo-angular-intl": "19.3.0",
+    "@progress/kendo-drawing": "^1.17.2",
+    "@progress/kendo-svg-icons": "^4.0.0"
   },
   "devDependencies": {
     "@angular/build": "^20.1.1",
@@ -55,5 +63,4 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.8.2"
   }
-  
 }
