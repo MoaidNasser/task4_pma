@@ -1,6 +1,5 @@
 <div class="add-edit-buttons-div">
     <button kendoButton (click)="addButtonClickEvent()">Add Product</button>
-    <button kendoButton (click)="editButtonClickEvent()">Edit Product</button>
 </div>
 
 <div class="kendo-grid-div">
@@ -17,6 +16,7 @@
             <ng-template kendoGridCellTemplate let-dataItem>
                 <button kendoButton (click)="onShow(dataItem.id)">Show Detailes</button>
                 <button kendoButton (click)="onRemove(dataItem.id)">Remove</button>
+                <button kendoButton (click)="editButtonClickEvent(dataItem.id)">Edit</button>
             </ng-template>
         </kendo-grid-column>
 

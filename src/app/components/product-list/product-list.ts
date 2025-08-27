@@ -26,8 +26,8 @@ export class ProductList {
     this.router.navigate(['/add']);
   }
 
-  editButtonClickEvent() {
-    this.router.navigate(['/edit']);
+  editButtonClickEvent(id : string) {
+    this.router.navigate(['/edit' , id]);
   }
 
   onShow(id: string) {
