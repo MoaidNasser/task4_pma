@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { Product } from '../../models/product';
 import { ButtonModule } from '@progress/kendo-angular-buttons';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { ProductService } from '../../services/product-service';
 
 
 @Component({
@@ -12,17 +13,30 @@ import { Router} from '@angular/router';
   styleUrl: './product-list.css'
 })
 export class ProductList {
- 
-constructor(private router: Router) {}
 
-  products: Product[] = [];
+  constructor(private router: Router, private crud: ProductService) { }
+
+  products = computed(() => this.crud.products());
+
+  ngOnInit() {
+    this.crud.loadProducts();
+  }
 
   addButtonClickEvent() {
     this.router.navigate(['/add']);
   }
 
-    editButtonClickEvent() {
+  editButtonClickEvent() {
     this.router.navigate(['/edit']);
   }
-  
+
+  onShow(id: string) {
+    this.router.navigate(['/product', id]);
+  }
+
+  onRemove(id: string) {
+
+    this.crud.removeProduct(id);
+  }
+
 }
