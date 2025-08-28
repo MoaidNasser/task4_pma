@@ -1,0 +1,43 @@
+<div class="add-edit-buttons-div">
+    <button kendoButton (click)="addButtonClickEvent()">Add Product</button>
+</div>
+
+<label for="select">Filter by categorey: </label>
+<select class="pm-select" [(ngModel)]="selectedCategory">
+    <option value="All">All</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Clothing">Clothing</option>
+    <option value="Grocery">Grocery</option>
+    <option value="Other">Other</option>
+</select>
+
+<div class="kendo-grid-div">
+    <kendo-grid [data]="(products() | filterByCategory:selectedCategory)">
+        [pageable]="true">
+
+        <kendo-grid-column title="Product Name" field="name"> </kendo-grid-column>
+        <kendo-grid-column title="Product Id" field="id"></kendo-grid-column>
+        <kendo-grid-column title="Category" field="category"></kendo-grid-column>
+        <kendo-grid-column title="Discontinued" field="discontinued"></kendo-grid-column>
+        <kendo-grid-column title="Units In Stock" field="UnitsInStock"></kendo-grid-column>
+        <kendo-grid-column title="Created At" field="createdAt">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                {{ dataItem.createdAt | date:'medium' }}
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Price" field="price">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <span [pmHighlightExpensive]="dataItem.price">
+                    {{ dataItem.price | currency:'USD':'symbol':'1.2-2' }}
+                </span> </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Actions">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <button kendoButton (click)="onShow(dataItem.id)">Show Detailes</button>
+                <button kendoButton (click)="onRemove(dataItem.id)">Remove</button>
+                <button kendoButton (click)="editButtonClickEvent(dataItem.id)">Edit</button>
+            </ng-template>
+        </kendo-grid-column>
+
+    </kendo-grid>
+</div>

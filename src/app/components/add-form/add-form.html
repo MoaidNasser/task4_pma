@@ -1,0 +1,74 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="field">
+        <label>Product:</label>
+        <input type="text" formControlName="name" placeholder="Enter product name">
+        @if (form.get('name')?.touched && form.get('name')?.hasError('required')) {
+        <small class="err">The name is required</small>
+        }
+        @if (form.get('name')?.touched && form.get('name')?.hasError('minlength')) {
+        <small class="err">Name must be at least 3 characters</small>
+        }
+    </div>
+
+    <div class="field">
+        <label>Price in $:</label>
+        <input type="number" formControlName="price" placeholder="Enter product price">
+        @if (form.get('price')?.touched && form.get('price')?.hasError('required')) {
+        <small class="err">The price is required</small>
+        }
+        @if (form.get('price')?.touched && form.get('price')?.hasError('min')) {
+        <small class="err">Price must be ≥ 0</small>
+        }
+    </div>
+
+    <div class="field">
+        <label>Units in stock:</label>
+        <input type="number" formControlName="UnitsInStock" placeholder="Units in stock">
+        @if (form.get('UnitsInStock')?.touched && form.get('UnitsInStock')?.hasError('required')) {
+        <small class="err">Units in stock is required</small>
+        }
+        @if (form.get('UnitsInStock')?.touched && form.get('UnitsInStock')?.hasError('min')) {
+        <small class="err">Units must be ≥ 0</small>
+        }
+    </div>
+
+    <div class="field">
+        <label>Category:</label>
+        <kendo-dropdownlist formControlName="category" [data]="categories" [defaultItem]="'Select category...'"
+            [valuePrimitive]="true">
+        </kendo-dropdownlist>
+        @if (form.get('category')?.touched && form.get('category')?.hasError('required')) {
+        <small class="err">The category is required</small>
+        }
+    </div>
+
+    <div class="field">
+        <label>Description:</label>
+        <input formControlName="description" placeholder="Enter description">
+        @if (form.get('description')?.touched && form.get('description')?.hasError('maxlength')) {
+        <small class="err">Max 30 characters</small>
+        }
+    </div>
+
+    <div class="field">
+        <label>Product id:</label>
+        <input type="text" formControlName="id" placeholder="Enter product id">
+        @if (form.get('id')?.touched && form.get('id')?.hasError('required')) {
+        <small class="err">The id is required</small>
+        }
+    </div>
+
+    <div class="field">
+        <label>Supplier id:</label>
+        <input type="text" formControlName="SupplierID" placeholder="Enter supplier id">
+        @if (form.get('SupplierID')?.touched && form.get('SupplierID')?.hasError('required')) {
+        <small class="err">The supplier id is required</small>
+        }
+        @if (form.get('SupplierID')?.touched && form.get('SupplierID')?.hasError('min')) {
+        <small class="err">Supplier id must be ≥ 0</small>
+        }
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Add product</button>
+</form>
