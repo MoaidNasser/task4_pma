@@ -5,11 +5,12 @@ import { ButtonModule } from '@progress/kendo-angular-buttons';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product-service';
 import { CurrencyPipe, DatePipe } from '@angular/common';
+import { FilterByCategoryPipe } from '../../pipes/filter-by-category-pipe';
 
 
 @Component({
   selector: 'app-product-list',
-  imports: [GridModule, ButtonModule,CurrencyPipe,DatePipe],
+  imports: [GridModule, ButtonModule,CurrencyPipe,DatePipe,FilterByCategoryPipe],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css'
 })
