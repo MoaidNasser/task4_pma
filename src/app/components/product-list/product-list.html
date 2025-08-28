@@ -2,8 +2,18 @@
     <button kendoButton (click)="addButtonClickEvent()">Add Product</button>
 </div>
 
+<label for="select">Filter by categorey: </label>
+<select class="pm-select" [(ngModel)]="selectedCategory">
+    <option value="All">All</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Clothing">Clothing</option>
+    <option value="Grocery">Grocery</option>
+    <option value="Other">Other</option>
+</select>
+
 <div class="kendo-grid-div">
-    <kendo-grid [data]="products()" [pageable]="true">
+    <kendo-grid [data]="(products() | filterByCategory:selectedCategory)">
+        [pageable]="true">
 
         <kendo-grid-column title="Product Name" field="name"> </kendo-grid-column>
         <kendo-grid-column title="Product Id" field="id"></kendo-grid-column>
@@ -17,8 +27,9 @@
         </kendo-grid-column>
         <kendo-grid-column title="Price" field="price">
             <ng-template kendoGridCellTemplate let-dataItem>
-                {{ dataItem.price | currency:'USD':'symbol':'1.2-2' }}
-            </ng-template>
+                <span [pmHighlightExpensive]="dataItem.price">
+                    {{ dataItem.price | currency:'USD':'symbol':'1.2-2' }}
+                </span> </ng-template>
         </kendo-grid-column>
         <kendo-grid-column title="Actions">
             <ng-template kendoGridCellTemplate let-dataItem>
