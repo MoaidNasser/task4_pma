@@ -213,4 +213,10 @@ export class ProductService {
     return updated;
   }
 
+
+  findProduct(id: string) {
+
+    const returendProduct = this.products().find(product => product.id === id);
+    return returendProduct;
+  }
 }

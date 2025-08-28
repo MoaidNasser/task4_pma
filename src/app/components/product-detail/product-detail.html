@@ -1,17 +1,38 @@
 <div class="titles">
-<h1>Product Detailes</h1>
-<h2>{{product.name}}</h2>
+    <h1>Product Detailes</h1>
+    <h2>{{productName}}</h2>
 </div>
 
-<kendo-grid
->
+<kendo-grid [data]="product()" [pageable]="true" [resizable]="true">
 
-    <kendo-grid-column title="Product Id"  field="id"></kendo-grid-column>
-    <kendo-grid-column title="Category" field="category"></kendo-grid-column>
-    <kendo-grid-column title="Discontinued" field="discontinued"></kendo-grid-column>
-    <kendo-grid-column title="Units In Stock" field="UnitsInStock"></kendo-grid-column>
-    <kendo-grid-column title="Created At" field="createdAt"></kendo-grid-column>
-    <kendo-grid-column title="Supplier Id" field="SupplierID"></kendo-grid-column>
-    <kendo-grid-column title="Price" field="price"></kendo-grid-column>
+    <kendo-grid-column field="id" title="Product Id"></kendo-grid-column>
+    <kendo-grid-column field="name" title="Name"></kendo-grid-column>
+    <kendo-grid-column field="category" title="Category"></kendo-grid-column>
+    <kendo-grid-column field="discontinued" title="Discontinued" filter="boolean">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            {{ dataItem.discontinued ? 'Yes' : 'No' }}
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="UnitsInStock" title="Units In Stock" filter="numeric"></kendo-grid-column>
+    <kendo-grid-column field="price" title="Price" filter="numeric">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            {{ dataItem.price | currency:'USD':'symbol':'1.2-2' }}
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="SupplierID" title="Supplier Id" filter="numeric"></kendo-grid-column>
+
+    <kendo-grid-column field="createdAt" title="Created At">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            {{ dataItem.createdAt | date:'medium' }}
+        </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column field="updatedAt" title="Updated At">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            {{ dataItem.updatedAt | date:'medium' }}
+        </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column field="description" title="Description"></kendo-grid-column>
 
 </kendo-grid>
