@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Category, Product } from '../../models/product';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product-service';
 
 
@@ -14,16 +14,17 @@ import { ProductService } from '../../services/product-service';
 })
 export class EditForm {
 
-  constructor(private router : ActivatedRoute, private crud : ProductService) {}
+  constructor(private router: ActivatedRoute, private crud: ProductService, private route: Router) { }
 
-  product : Partial<Product> = {}; 
+  product: Partial<Product> = {};
   categories: Category[] = ['Electronics', 'Clothing', 'Grocery', 'Other'];
 
-  onSubmit (form : any) {
-   console.log(form.value);
-   const id = this.router.snapshot.paramMap.get('id')!;
-   this.crud.updateProduct(id, this.product) 
+  onSubmit(form: any) {
+    console.log(form.value);
+    const id = this.router.snapshot.paramMap.get('id')!;
+    this.crud.updateProduct(id, this.product)
 
+    this.route.navigate(['/products']);
 
   }
 }
