@@ -6,7 +6,6 @@ import { EditForm } from './components/edit-form/edit-form';
 import { AddForm } from './components/add-form/add-form';
 
 export const routes: Routes = [
-    {path : '' , component : App},
     {path : 'product/:id' , component : ProductDetail},
     {path : 'products' , component : ProductList},
     {path : 'edit/:id', component : EditForm},
