@@ -1,1 +1,31 @@
-<p>edit-form works!</p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <div class="name">
+        <label>Product name:</label>
+        <input type="text" name="name" [(ngModel)]="product.name" placeholder="Enter product name" required>
+    </div>
+
+    <div class="price">
+        <label>Price:</label>
+        <input type="number" name="price" [(ngModel)]="product.price" placeholder="Enter product price" required min="0">
+    </div>
+
+    <div class="supplierId">
+        <label>Supplier id:</label>
+        <input type="text" name="supplierId" [(ngModel)]="product.SupplierID" placeholder="Enter supplier id">
+    </div>
+
+    <div class="category">
+        <label>Category:</label>
+        <kendo-dropdownlist name="category" [data]="categories" [defaultItem]="'Select category...'"
+            [(ngModel)]="product.category" [valuePrimitive]="true" required>
+        </kendo-dropdownlist>
+    </div>
+
+    <div class="description">
+        <label>Description:</label>
+        <input type="text" name="description" [(ngModel)]="product.description" placeholder="Enter description">
+    </div>
+
+    <button type="submit">Apply changes</button>
+</form>
