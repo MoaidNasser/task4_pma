@@ -7,11 +7,12 @@ import { ProductService } from '../../services/product-service';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { FilterByCategoryPipe } from '../../pipes/filter-by-category-pipe';
 import { FormsModule } from '@angular/forms';
+import { HighlightExpensiveDirective } from '../../directives/highlight-expensive';
 
 
 @Component({
   selector: 'app-product-list',
-  imports: [GridModule, ButtonModule, CurrencyPipe, DatePipe, FilterByCategoryPipe, FormsModule],
+  imports: [GridModule, ButtonModule, CurrencyPipe, DatePipe, FilterByCategoryPipe, FormsModule, HighlightExpensiveDirective],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css'
 })

@@ -27,8 +27,9 @@
         </kendo-grid-column>
         <kendo-grid-column title="Price" field="price">
             <ng-template kendoGridCellTemplate let-dataItem>
-                {{ dataItem.price | currency:'USD':'symbol':'1.2-2' }}
-            </ng-template>
+                <span [pmHighlightExpensive]="dataItem.price">
+                    {{ dataItem.price | currency:'USD':'symbol':'1.2-2' }}
+                </span> </ng-template>
         </kendo-grid-column>
         <kendo-grid-column title="Actions">
             <ng-template kendoGridCellTemplate let-dataItem>
