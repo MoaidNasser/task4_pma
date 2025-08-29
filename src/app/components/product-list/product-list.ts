@@ -1,20 +1,23 @@
 import { Component, computed, effect, signal } from '@angular/core';
 import { GridModule } from '@progress/kendo-angular-grid';
-import { Product } from '../../models/product';
+import { Category, Product } from '../../models/product';
 import { ButtonModule } from '@progress/kendo-angular-buttons';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product-service';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { FilterByCategoryPipe } from '../../pipes/filter-by-category-pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-product-list',
-  imports: [GridModule, ButtonModule,CurrencyPipe,DatePipe,FilterByCategoryPipe],
+  imports: [GridModule, ButtonModule, CurrencyPipe, DatePipe, FilterByCategoryPipe, FormsModule],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css'
 })
 export class ProductList {
+
+  selectedCategory: Category = 'All';
 
   constructor(private router: Router, private crud: ProductService) { }
 
@@ -28,8 +31,8 @@ export class ProductList {
     this.router.navigate(['/add']);
   }
 
-  editButtonClickEvent(id : string) {
-    this.router.navigate(['/edit' , id]);
+  editButtonClickEvent(id: string) {
+    this.router.navigate(['/edit', id]);
   }
 
   onShow(id: string) {

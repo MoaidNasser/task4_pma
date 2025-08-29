@@ -2,7 +2,8 @@
     <button kendoButton (click)="addButtonClickEvent()">Add Product</button>
 </div>
 
-<select [(ngModel)]="selectedCategory">
+<label for="select">Filter by categorey: </label>
+<select class="pm-select" [(ngModel)]="selectedCategory">
     <option value="All">All</option>
     <option value="Electronics">Electronics</option>
     <option value="Clothing">Clothing</option>
@@ -11,7 +12,8 @@
 </select>
 
 <div class="kendo-grid-div">
-    <kendo-grid [data]="products()" [pageable]="true">
+    <kendo-grid [data]="(products() | filterByCategory:selectedCategory)">
+        [pageable]="true">
 
         <kendo-grid-column title="Product Name" field="name"> </kendo-grid-column>
         <kendo-grid-column title="Product Id" field="id"></kendo-grid-column>
